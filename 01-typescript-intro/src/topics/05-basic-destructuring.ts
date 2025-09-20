@@ -29,5 +29,25 @@ const { author } = details;
 console.log('Song :', song);
 console.log('Author :', author);
 
-// 3 MIN
+//Destructuring en arreglos
+const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
+
+//Sin destructuracion 
+const trunks = dbz[3] || "No hay personaje";
+
+//Con destructuracion
+const [ p1, p2, p3 ] = dbz;
+console.log('Personaje 3 :', p3);
+
+//Otra forma mejor aun y mas compacta
+
+const [ , , freezer ]: string[] = ['Goku', 'Vegeta', 'Freezer'];
+console.error('Personaje 3:', freezer);
+
+//Poniendo valores por defecto para evitar undefined
+const [ , , sandia = 'Not found' ]: string[] = ['manzana', 'pera'];
+
+console.log('La sandia:', sandia);
+
+
 export {};
