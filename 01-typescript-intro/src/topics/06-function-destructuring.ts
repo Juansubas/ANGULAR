@@ -14,7 +14,7 @@ const tablet: Product = {
 };
 
 function taxCalculation() : number[]{
-  
+  return [phone.price * tax, tablet.price * tax];
 }
 
 const shoppingCart = [phone, tablet];
