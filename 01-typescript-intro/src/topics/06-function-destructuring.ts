@@ -13,12 +13,42 @@ const tablet: Product = {
   price: 350,
 };
 
-function taxCalculation() : number[]{
-  return [phone.price * tax, tablet.price * tax];
+interface TaxCalculationOptions {
+  tax: number;
+  products: Product[];
+}
+
+function taxCalculation( options: TaxCalculationOptions ) : [number, number]{
+  
+  const { tax, products } = options;
+  
+  let total = 0;
+
+  //antes sin destructuracion...
+  // options.products.forEach( product => {
+  //   total += product.price;
+  // });
+  //despues con destructuracion... con options : TaxCalculationOptions
+  // options.products.forEach( ({price}) => {
+  //   total += price;
+  // });
+
+    products.forEach( ({price}) => {
+    total += price;
+  });
+
+  return [total, total * tax ];
 }
 
 const shoppingCart = [phone, tablet];
 const tax = 0.15;
 
+const [total, totalTax ] = taxCalculation( {
+  products: shoppingCart,
+  tax: tax,
+});
+
+console.log('Total', total);
+console.log('Tax', totalTax);
 
 export {};
